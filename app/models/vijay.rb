@@ -1,0 +1,2 @@
+class Vijay < ApplicationRecord
+end

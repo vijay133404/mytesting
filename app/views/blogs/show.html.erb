@@ -1,0 +1,15 @@
+<%= @blog1.title %>
+<%= link_to 'show_all blogs', blogs_path%>
+
+<% @blog1.comments.each do |com| %>
+<p>
+  comment
+  <%= com.content%>
+  </p>
+<% end%>
+<%#= form_for ([:create,@comment, @blog1]) do |form| %>
+<%= form_for :comment, url: {controller: "blogs" ,action: "create_comment", params: {id: @blog1.id}} do |form| %>
+  <%= form.label :content %>
+ <%= form.text_field :content %>
+ <%= form.submit %>
+<%end%>
