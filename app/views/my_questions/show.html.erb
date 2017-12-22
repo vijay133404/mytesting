@@ -1,0 +1,15 @@
+<p>
+<h4> Question </h4><%= @question.name %> 
+<%= link_to 'Edit_Question',edit_my_question_path(@question) %>
+
+</p>
+<%= link_to 'All question', my_questions_path %>
+
+<% @question.answers.each do |answer| %>
+  <p>
+   <h4> Answer</h4><%= answer.ans%>
+   <%= link_to 'Answer edit', edit_my_question_question_answer_path(@question,answer.id) %>
+</p>
+<%end%>
+
+<%= link_to 'Add Answer', new_my_question_question_answer_path(@question) %>

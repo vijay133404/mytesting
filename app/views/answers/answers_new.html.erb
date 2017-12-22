@@ -1,0 +1,6 @@
+<%= form_for :answer, url: {controller: "answers" ,action: "answer_create" } do |form| %>
+ <%= form.label :answer %>
+ <%= form.text_field :ans %>
+ <%= form.submit %>
+
+<%end%>

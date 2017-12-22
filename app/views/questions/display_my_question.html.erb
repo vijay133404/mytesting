@@ -1,0 +1,12 @@
+
+<%= @question.name%>
+
+<% @question.answers.each do |a| %>
+<%= a.ans %>
+<% end %>
+
+<%= form_for :answer,url:"/question/#{@question.id}/answer" do |form|%>
+
+<%= form.text_field :ans %>
+<%= form.submit %>
+<%end%>

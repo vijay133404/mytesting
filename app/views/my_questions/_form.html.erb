@@ -1,0 +1,7 @@
+<%#= form_for :question do |form| %>
+<%= form_for :question,url:"/my_questions" do |form|%>
+ <%= form.label :question %>
+ <%= form.text_field :name %>
+ <%= form.submit %>
+
+<%end%>
