@@ -5,9 +5,8 @@ class QuestionAnswersController < ApplicationController
 	end
 
 	def create
-
 		@ques = Question.find(params[:my_question_id])
-        @answer = @ques.answers.create(ans: params[:answer][:ans])
+        @answer = @ques.answers.create(answer_params)
 	    redirect_to my_question_path(id: @ques)
 
 	end
@@ -20,10 +19,17 @@ class QuestionAnswersController < ApplicationController
 	end
 
 	def update
+		byebug
 		  @question = Question.find(params[:my_question_id])
 		  @ans = @question.answers.find(params[:id])
-		  @ans.update(ans: params[:answer][:ans])
+		  @ans.update(answer_params)
 		  redirect_to my_question_path(id:@question)
 	
 	end
+
+	private
+
+	def answer_params
+		params.require(:answer).permit(:ans,:disabled,:question_id)
+	end 
 end

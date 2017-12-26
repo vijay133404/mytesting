@@ -1,3 +1,4 @@
+
 <% @questions.each do |question| %>
 <p>
    <h4>Question:-</h4><%= question.name%>
@@ -5,8 +6,13 @@
    <%question.answers.each do |answer| %>
       <p>
        <strong>Answer:-  </strong><%= answer.ans %>
+        <%= form_for :answer,url:"/my_questions/#{question.id}/question_answers/#{answer.id}", method: :PATCH do |f|%>
+        <%= f.check_box :disabled, {}, true, false %> <br />
        </p>
+       <%= f.submit "submit"%>
    <%end%>
 </p>
+
+<%end%>
 
 <%end%>
