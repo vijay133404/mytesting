@@ -1,0 +1,10 @@
+<% @questions.each do |question| %>
+   <h4>Question:-</h4><%= question.name %>
+     <% question.answers.each do |answer| %>
+           
+		      <% if answer.option == true %>
+		           <strong>Answer:-</strong> <%= answer.ans %>
+        
+     <%end%>
+     <%end%>
+<%end%>

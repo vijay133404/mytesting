@@ -1,18 +1,16 @@
-
+<%= form_for :submit ,url:"/question/submit_ans", method: :POST do |f|%>
 <% @questions.each do |question| %>
 <p>
-   <h4>Question:-</h4><%= question.name%>
-
+   <h4>Question:-</h4><%= question.name %>
+   <%#= f.hidden_field :question_id, :value => question.id %>
    <%question.answers.each do |answer| %>
       <p>
-       <strong>Answer:-  </strong><%= answer.ans %>
-        <%= form_for :answer,url:"/my_questions/#{question.id}/question_answers/#{answer.id}", method: :PATCH do |f|%>
-        <%= f.check_box :disabled, {}, true, false %> <br />
-       </p>
-       <%= f.submit "submit"%>
+       <strong>Answer:-</strong> <%= answer.ans %>
+       <input type="checkbox" name="<%= answer.id %>" value="<%= answer.id %>" > <br> </p>
+    
    <%end%>
 </p>
 
 <%end%>
-
+   <%= f.submit "submit"%>
 <%end%>

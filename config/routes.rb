@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
    resources :blogs do
    	resources :comments
    	# member do
@@ -22,7 +23,10 @@ Rails.application.routes.draw do
      post 'question/:question_id/answer',:to=> 'answers#answer_create'
     
      resources :my_questions do
+        #post 'question/submit',:to=> 'my_questions#submit'
         resources :question_answers
+        
      end
-
+     post 'question/submit_ans',:to=> 'my_questions#submit_ans'
+     get 'my_correctanswers', :to => 'my_questions#all_correctans'
 end

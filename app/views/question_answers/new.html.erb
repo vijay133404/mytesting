@@ -1,6 +1,15 @@
 <%= form_for :answer,url:"/my_questions/#{@question.id}/question_answers" do |form|%>
  <%= form.label :answer %>
  <%= form.text_field :ans %>
+ <!-- <select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select> -->
+<%= form.label :ans_option %>
+<%#= select_tag "option", "<option>a</option><option>b</option><option>c</option><option>d</option>".html_safe%>
+ <%= form.check_box :option, {}, true, false %>
  <%= form.submit %>
 
 <%end%>

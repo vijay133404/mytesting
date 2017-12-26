@@ -1,5 +1,5 @@
 class QuestionAnswersController < ApplicationController
-
+   before_action :authenticate_user!
 	def new
 		@question = Question.find(params[:my_question_id])
 	end
@@ -19,7 +19,6 @@ class QuestionAnswersController < ApplicationController
 	end
 
 	def update
-		byebug
 		  @question = Question.find(params[:my_question_id])
 		  @ans = @question.answers.find(params[:id])
 		  @ans.update(answer_params)
@@ -30,6 +29,6 @@ class QuestionAnswersController < ApplicationController
 	private
 
 	def answer_params
-		params.require(:answer).permit(:ans,:disabled,:question_id)
+		params.require(:answer).permit(:ans,:disabled,:question_id,:option)
 	end 
 end
