@@ -18,7 +18,10 @@
          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
       <% end %>
     </div>
-
+     <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>

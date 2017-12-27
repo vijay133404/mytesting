@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  root to: 'my_questions#index'
    resources :blogs do
    	resources :comments
    	# member do

@@ -1,10 +1,13 @@
+
 <% @questions.each do |question| %>
    <h4>Question:-</h4><%= question.name %>
      <% question.answers.each do |answer| %>
-           
-		      <% if answer.option == true %>
-		           <strong>Answer:-</strong> <%= answer.ans %>
-        
-     <%end%>
-     <%end%>
+	     <% @submits.each do |s| %>
+		       <% if answer.option == s.disabled && answer.id == s.answer_id %>
+                     
+		            <strong>Answer:-</strong> <%= answer.ans %>
+                 
+		       <%end%>
+	     <%end%>
+   <%end%>
 <%end%>
